@@ -47,11 +47,11 @@ describe 'Train' do
     end
   end
 
-  describe('#update') do
-    it("updates a traom by id") do
+  describe('#update2') do
+    it("updates a train by id") do
       train = Train.new({:name => "Red Train", :id => nil})
       train.save()
-      train.update("Blue Train")
+      train.update2("Blue Train")
       expect(train.name).to(eq("Blue Train"))
     end
   end

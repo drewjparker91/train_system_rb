@@ -1,4 +1,4 @@
-<h1>Trains, Planes, and Automobiles</h1>
+<h1>TRAINS</h1>
 
 <h2>Train List</h2>
 
@@ -6,7 +6,7 @@
   <ul>
     <% @trains.each do |train| %>
     <li>
-      <a href="/trains/<%= train.id %> %"><% train.name %></a>
+      <a href="/trains/<%= train.id %>"><%= train.name %></a>
     </li>
   <% end %>
   </ul>
@@ -14,7 +14,8 @@
   <p>There are no trains at this time</p>
 <% end %>
 
-<a href="/trains/new">Add a new train</a>
+<p><a href="/trains/new">Add a new train</a></p>
+<p><a href="/cities">Visit city list</a></p>
 
 <form action="/search">
   <div class="form-group">

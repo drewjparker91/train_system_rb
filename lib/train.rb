@@ -26,7 +26,7 @@ class Train
     trains
   end
     
-  def save
+  def save()
     result = DB.exec("INSERT INTO trains (name) VALUES ('#{@name}') RETURNING id;")
     @id = result.first().fetch("id").to_i()
   end
@@ -46,11 +46,26 @@ class Train
     end
   end
 
-  def update (attributes)
-    @name = attributes
+  def update (name)
+    @name = name
     DB.exec("UPDATE trains SET name = '#{@name}' WHERE id = #{@id};")
   end
 
+  # def update2 (attributes)
+  #   if (attributes.has_key?(:name)) && (attributes.fetch(:name) != nil)
+  #     @name = attributes.fetch(:name)
+  #     DB.exec("UPDATE trains SET name = '#{@name}' WHERE id = #{@id};")
+  #   elsif (attributes.has_key?(:city_name)) && (attributes.fetch(:city_name) != nil)
+  #     city_name = attributes.fetch(:city_name)
+  #     album = DB.exec("SELECT * FROM cities WHERE lower(name)-'#{city_name.downcase}';").first()
+  #     if city != nil
+  #       DB.exec("INSERT INTO city_trains (city_id, train_id) VALUES (#{train['id'].to_i}, #{@id};")
+  #     end
+  #   end
+  # end
+
+  
+      
   def delete
     DB.exec("DELETE FROM trains WHERE id = #{@id};")
     # DB.exec("DELETE FROM cities WHERE cities_id = #{@id};")
