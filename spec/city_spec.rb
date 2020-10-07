@@ -8,15 +8,15 @@ describe 'City' do
     end
   end
 
-  # describe('#save') do
-  #   it("saves a city") do
-  #     city = City.new({:name => "Red City", :id => nil})
-  #     city.save()
-  #     city2 = City.new({:name => "Blue City", :id => nil})
-  #     city2.save()
-  #     expect(City.all).to(eq([city, city2]))
-  #   end
-  # end
+  describe('#save') do
+    it("saves a city") do
+      city = City.new({:name => "Red City", :id => nil})
+      city.save()
+      city2 = City.new({:name => "Blue City", :id => nil})
+      city2.save()
+      expect(City.all).to(eq([city, city2]))
+    end
+  end
 
   # describe('.clear') do
   #   it("clears all cities") do
