@@ -18,4 +18,34 @@ describe 'Doctor' do
     end
   end
 
+  describe('.clear') do
+    it("clears all trains") do
+      train = Train.new({:name => "Red Train", :id => nil})
+      train.save()
+      train2 = Train.new({:name => "Blue Train", :id => nil})
+      train2.save()
+      Train.clear
+      expect(Train.all).to(eq([]))
+    end
+  end
+
+  describe('#==') do
+    it("is the same train if it has the same attributes as another train") do
+      train = Train.new({:name => "Red Train", :id => nil})
+      train2 = Train.new({:name => "Red Train", :id => nil})
+      expect(train).to(eq(train2))
+    end
+  end
+
+  describe('.find') do
+    it("finds a train by id") do
+      train = Train.new({:name => "Red Train", :id => nil})
+      train.save()
+      train2 = Train.new({:name => "Blue Train", :id => nil})
+      train2.save()
+      expect(Train.find(train2.id)).to(eq(train2))
+    end
+  end
+
+
 end
