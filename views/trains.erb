@@ -1,0 +1,24 @@
+<h1>Trains, Planes, and Automobiles</h1>
+
+<h2>Train List</h2>
+
+<% if @trains.any? %>
+  <ul>
+    <% @trains.each do |train| %>
+    <li>
+      <a href="/trains/<%= train.id %> %"><% train.name %></a>
+    </li>
+  <% end %>
+  </ul>
+<% else %>
+  <p>There are no trains at this time</p>
+<% end %>
+
+<a href="/trains/new">Add a new train</a>
+
+<form action="/search">
+  <div class="form-group">
+    <label for="search">Search</label>
+    <input id="search" name="search" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn btn-success">Search!</button>

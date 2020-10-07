@@ -53,7 +53,7 @@ class Train
 
   def delete
     DB.exec("DELETE FROM trains WHERE id = #{@id};")
-    # DB.exec("DELETE FROM doctors WHERE cities_id = #{@id};")
+    # DB.exec("DELETE FROM cities WHERE cities_id = #{@id};")
   end
 
   def cities
