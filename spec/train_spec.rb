@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe 'Doctor' do
+describe 'Train' do
   
   describe('.all') do
-    it("returns an empty array when there are no do trains") do
+    it("returns an empty array when there are no trains") do
       expect(Train.all).to(eq([]))
     end
   end
@@ -47,5 +47,23 @@ describe 'Doctor' do
     end
   end
 
+  describe('#update') do
+    it("updates a traom by id") do
+      train = Train.new({:name => "Red Train", :id => nil})
+      train.save()
+      train.update("Blue Train")
+      expect(train.name).to(eq("Blue Train"))
+    end
+  end
 
+  describe('#delete') do
+    it("deletes a train by id") do
+      train = Train.new({:name => "Red Train", :id => nil})
+      train.save()
+      train2 = Train.new({:name => "Blue Train", :id => nil})
+      train2.save()
+      train.delete()
+      expect(Train.all).to(eq([train2]))
+    end
+  end
 end
